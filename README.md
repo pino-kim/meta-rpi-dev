@@ -18,7 +18,7 @@ This distro dependends on :
 
 ## Create workspace
 ```text
-mkdir rpi3-arm64-distro && cd rpi3-arm64-distro
+mkdir rpi3-arm64-build && cd rpi3-arm64-build
 repo init -u git://github.com/pino-kim/rpi3-arm64-distro  -b master -m manifests/manifests.xml
 repo sync
 repo start work --all
