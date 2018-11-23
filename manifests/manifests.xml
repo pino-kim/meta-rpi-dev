@@ -11,6 +11,6 @@
   <project name="openembedded-core" remote="openembedded" path="openembedded-core" revision="master" />
   <project name="poky" remote="yocto" path="poky" revision="master" />
   <project name="meta-openembedded" remote="openembedded" path="meta-openembedded" revision="master" />
-  <project name="rpi3-arm64-distro" remote="pino-kim" path="rpi3-arm64-distro" revision="master" />
+  <project name="rpi-yocto-build" remote="pino-kim" path="rpi-yocto-build" revision="master" />
 
 </manifest>
