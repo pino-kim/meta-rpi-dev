@@ -1,5 +1,5 @@
-# rpi3-arm64-distro
-build my own raspberry pi3 arm64 yocto distro
+# rpi-yocto-build
+build my own raspberry pi yocto
 
 ## Dependencies
 
@@ -18,8 +18,8 @@ This distro dependends on :
 
 ## Create workspace
 ```text
-mkdir rpi3-arm64-build && cd rpi3-arm64-build
-repo init -u git://github.com/pino-kim/rpi3-arm64-distro  -b master -m manifests/manifests.xml
+mkdir rpi-yocto-build && cd rpi-yocto-build
+repo init -u git://github.com/pino-kim/rpi-yocto-build  -b master -m manifests/manifests.xml
 repo sync
 repo start work --all
 ```
