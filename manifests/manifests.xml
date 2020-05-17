@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <manifest>
-    <remote name="openembedded" fetch="git://git.openembedded.org" />
+  <remote name="openembedded" fetch="git://github.com/openembedded/" />
   <remote name="raspberrypi" fetch="https://github.com/agherzan/" />
   <remote name="yocto" fetch="git://git.yoctoproject.org/" />
   <remote name="pino-kim" fetch="https://github.com/pino-kim/" />
@@ -10,7 +10,6 @@
   <project name="meta-raspberrypi" remote="raspberrypi" path="meta-raspberrypi" revision="master" />
   <project name="openembedded-core" remote="openembedded" path="openembedded-core" revision="master" />
   <project name="meta-openembedded" remote="openembedded" path="meta-openembedded" revision="master" />
-  <project name="meta-python2" remote="openembedded" path="meta-python2" revision="master" />
   <project name="bitbake" remote="openembedded" path="openembedded-core/bitbake" revision="master" />
   <project name="rpi-yocto-build" remote="pino-kim" path="rpi-yocto-build" revision="master" />
 
