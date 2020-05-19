@@ -91,5 +91,7 @@ RPI_USE_U_BOOT = "1"
 ENABLE_I2C = "1" 
 ENABLE_SPI_BUS = "1" 
 
+# FiX uart output cracked #3
+GPU_FREQ = "250"
 EOF
 
