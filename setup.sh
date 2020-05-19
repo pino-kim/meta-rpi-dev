@@ -82,5 +82,14 @@ VIRTUAL-RUNTIME_init_manager = "systemd"
 DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
 
 HOSTTOOLS_NONFATAL_append = " ssh"
+
+# Add Rpi board configuration
+# Read this doc carefully : https://meta-raspberrypi.readthedocs.io/en/latest/extra-build-config.html
+IMAGE_FSTYPES_append = " rpi-sdimg"
+ENABLE_UART = "1" 
+RPI_USE_U_BOOT = "1" 
+ENABLE_I2C = "1" 
+ENABLE_SPI_BUS = "1" 
+
 EOF
 
