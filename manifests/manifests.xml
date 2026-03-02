@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <manifest>
-  <remote name="openembedded" fetch="git://github.com/openembedded/" />
+  <remote name="openembedded" fetch="https://github.com/openembedded/" />
   <remote name="raspberrypi" fetch="https://github.com/agherzan/" />
-  <remote name="yocto" fetch="git://git.yoctoproject.org/" />
+  <remote name="yocto" fetch="https://git.yoctoproject.org/" />
   <remote name="pino-kim" fetch="https://github.com/pino-kim/" />
   <default remote="openembedded" revision="master" />
 
