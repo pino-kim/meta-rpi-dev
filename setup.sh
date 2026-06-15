@@ -8,6 +8,7 @@
 DIR="${2:-build}"
 MACHINE="${1:-raspberrypi3-64}"
 BITBAKEIMAGE="${3:-core-image-minimal}"
+
 CONFFILE="conf/auto.conf"
 
 # ---------- safety: must be sourced ----------
@@ -44,13 +45,12 @@ cat <<EOF > "${CONFFILE}"
 MACHINE ?= "${MACHINE}"
 
 # Debugging convenience
-#EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
 EXTRA_IMAGE_FEATURES:append = " ssh-server-dropbear"
 EXTRA_IMAGE_FEATURES:append = " package-management"
-
-# QEMU UI (optional)
-PACKAGECONFIG:append:pn-qemu-native = " sdl"
-PACKAGECONFIG:append:pn-nativesdk-qemu = " sdl"
+EXTRA_IMAGE_FEATURES:append = " allow-empty-password"
+EXTRA_IMAGE_FEATURES:append = " empty-root-password"
+EXTRA_IMAGE_FEATURES:append = " allow-root-login"
+EXTRA_IMAGE_FEATURES:append = " serial-autologin-root"
 
 # Keep INHERIT minimal.
 # NOTE: image-mklibs / image-prelink are not present in newer OE-Core -> do NOT add them.
@@ -64,23 +64,45 @@ INHERIT:append = " buildstats buildhistory buildstats-summary uninative"
 # systemd
 DISTRO_FEATURES:append = " largefile opengl ptest multiarch wayland pam systemd"
 VIRTUAL-RUNTIME_init_manager = "systemd"
-DISTRO_FEATURES_BACKFILL_CONSIDERED:append = " sysvinit"
+
+# Prevent sysvinit from being automatically added through DISTRO_FEATURES_OPTED_OUT.
+DISTRO_FEATURES_OPTED_OUT:append = " sysvinit"
 
 HOSTTOOLS_NONFATAL:append = " ssh"
 
-# Raspberry Pi extras (meta-raspberrypi)
-IMAGE_FSTYPES:append:raspberrypi3-64 = " rpi-sdimg"
-IMAGE_FSTYPES:append:raspberrypi4-64 = " rpi-sdimg"
-IMAGE_FSTYPES:append:raspberrypi5 = " rpi-sdimg"
+# Raspberry Pi image outputs.
+IMAGE_FSTYPES:append:${MACHINE} = " rpi-sdimg ext4"
+
+# Raspberry Pi board options.
 ENABLE_UART = "1"
-RPI_USE_U_BOOT = "1"
 ENABLE_I2C = "1"
 ENABLE_SPI_BUS = "1"
 
+# Keep default Raspberry Pi boot flow for real board validation.
+# If your project explicitly requires U-Boot, set this to "1".
+# For pure Raspberry Pi firmware boot, keep it disabled.
+RPI_USE_U_BOOT = "0"
+
 GPU_FREQ = "250"
+
+# Rootfs size.
+# For real board validation, use a practical size rather than tiny QEMU-only size.
+# 1048576 KiB = 1 GiB
+# 2097152 KiB = 2 GiB
+# 8388608 KiB = 8 GiB
+IMAGE_ROOTFS_SIZE:forcevariable = "1048576"
+IMAGE_OVERHEAD_FACTOR:forcevariable = "1.0"
+IMAGE_ROOTFS_EXTRA_SPACE:forcevariable = "0"
+
+# NOTE:
+# QB_* variables are for runqemu.
+# This project currently uses qemu-system-aarch64 directly for smoke testing,
+# so QB_* settings are intentionally omitted.
 EOF
 
 echo "Done."
 echo "You are now in: $(pwd)"
+echo "MACHINE=${MACHINE}"
+echo "Build dir=${DIR}"
 echo "Next:"
 echo "  bitbake ${BITBAKEIMAGE}"
