@@ -5,12 +5,12 @@
   <remote name="raspberrypi" fetch="https://github.com/agherzan/" />
   <remote name="yocto" fetch="https://git.yoctoproject.org/" />
   <remote name="pino-kim" fetch="https://github.com/pino-kim/" />
-  <default remote="openembedded" revision="master" />
+  <default remote="openembedded" revision="wrynose" />
 
-  <project name="meta-raspberrypi" remote="raspberrypi" path="meta-raspberrypi" revision="master" />
-  <project name="openembedded-core" remote="openembedded" path="openembedded-core" revision="master" />
-  <project name="meta-openembedded" remote="openembedded" path="meta-openembedded" revision="master" />
-  <project name="bitbake" remote="openembedded" path="openembedded-core/bitbake" revision="master" />
-  <project name="meta-rpi-dev" remote="pino-kim" path="meta-rpi-dev" revision="master" />
+  <project name="meta-raspberrypi" remote="raspberrypi" path="meta-raspberrypi" revision="wrynose" />
+  <project name="openembedded-core" remote="openembedded" path="openembedded-core" revision="wrynose" />
+  <project name="meta-openembedded" remote="openembedded" path="meta-openembedded" revision="wrynose" />
+  <project name="bitbake" remote="openembedded" path="openembedded-core/bitbake" revision="wrynose" />
+  <project name="meta-rpi-dev" remote="pino-kim" path="meta-rpi-dev" revision="wrynose" />
 
 </manifest>

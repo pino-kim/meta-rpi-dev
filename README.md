@@ -12,17 +12,17 @@ build your own raspberry pi image by yocto build system.
 This distro depends on : 
 
 * URI: git://github.com/openembedded/openembedded-core
-	* branch: master
+	* branch: wrynose
 	* revision: HEAD
 * URI: git://github.com/openembedded/meta-openembedded
 	* layers: meta-oe, meta-multimedia, meta-networking, meta-python
-	* branch: master
+	* branch: wrynose
 	* revision: HEAD
 * URI: git://github.com/openembedded/bitbake
-	* branch: master
+	* branch: wrynose
 	* revision: HEAD
 * URI: git://github.com/agherzan/meta-raspberrypi
-	* branch: master
+	* branch: wrynose
 	* revision: HEAD
 
 ## Quick Start
@@ -45,7 +45,7 @@ Make sure to [install the `repo` command by Google](https://source.android.com/s
 ## Create workspace
 ```text
 mkdir rpi-yocto-build && cd rpi-yocto-build
-repo init -u git://github.com/pino-kim/meta-rpi-dev -b master -m manifests/manifests.xml
+repo init -u git://github.com/pino-kim/meta-rpi-dev -b wrynose -m manifests/manifests.xml
 repo sync
 repo start work --all
 ```
