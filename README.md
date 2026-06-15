@@ -9,7 +9,7 @@ build your own raspberry pi image by yocto build system.
 
 ## Dependencies
 
-This distro dependends on : 
+This distro depends on : 
 
 * URI: git://github.com/openembedded/openembedded-core
 	* branch: master
@@ -45,7 +45,7 @@ Make sure to [install the `repo` command by Google](https://source.android.com/s
 ## Create workspace
 ```text
 mkdir rpi-yocto-build && cd rpi-yocto-build
-repo init -u git://github.com/pino-kim/meta-rpi-dev  -b master -m manifests/manifests.xml
+repo init -u git://github.com/pino-kim/meta-rpi-dev -b master -m manifests/manifests.xml
 repo sync
 repo start work --all
 ```
@@ -73,9 +73,9 @@ repo rebase
 MACHINE=raspberrypi3-64 bitbake rpi-test-image
 ```
 ## flash image
-After build succes, you can find sdimg in deploy
+After the build succeeds, you can find the sdimg in deploy.
 
-Recomend you to flash sdcard by [Etcher](https://www.balena.io/etcher/)
+Recommend flashing the SD card with [Etcher](https://www.balena.io/etcher/).
 
 ## Maintainer
 sungwon.pino at gmail.com
